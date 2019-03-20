@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>Site:<a href="/index">Home</a></div>
+<div><a href="/login">Login</a></div>
+{%with messages = get_flashed_messages() %}
+{% if messages%}
+<u1>
+    {% for message in messages%}
+    <li>{{message}}</li>
+    {% endfor%}
+</u1>
+{%endif%}
+{%endwith%}
+</body>
+</html>

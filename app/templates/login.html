@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <h1>Sign in</h1>
+    <form action="" method="post" name="login" >
+        {{form.hidden_tag()}}
+        <p>
+            Please enter your OpenId:<br>
+            {{form.openid(size=80)}}<br>
+        </p>
+        <p>{{form.remember_me}}Remember mee</p>
+        <p>{{form.men}}men</p> <p>{{form.women}}women</p>
+        <p><input type="submit" value="Sign in"></p>
+    </form>
+{%endblock%}
+</body>
+</html>
