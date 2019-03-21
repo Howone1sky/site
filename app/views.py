@@ -8,7 +8,7 @@ from app import app
 def login():
     form = forms.LoginForm()
     if form.validate_on_submit():
-        flash('login ' + form.login.data + 'password ' + form.openid.data + ', remember_me = ' + str(form.remember_me.data))
+        flash('login ' + form.login.data + 'password ' + form.password.data + ', remember_me = ' + str(form.remember_me.data))
         if form.men.data:
             flash(str(form.men.data))
         if form.women.data:
