@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired
 
 
 class LoginForm(Form):
+    login = StringField('login', validators=[DataRequired()])
     openid = PasswordField('openid', validators=[DataRequired()])
     remember_me = BooleanField('remember_me', default=True)
     men = BooleanField('men', default=False)

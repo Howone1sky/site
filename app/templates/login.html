@@ -10,7 +10,9 @@
     <form action="" method="post" name="login" >
         {{form.hidden_tag()}}
         <p>
-            Please enter your OpenId:<br>
+            Please enter login:<br>
+            {{form.login(size=80)}}<br>
+            Please enter password:<br>
             {{form.openid(size=80)}}<br>
         </p>
         <p>{{form.remember_me}}Remember mee</p>
