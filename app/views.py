@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect
+from flask import render_template, flash, redirect, request
 
 from app import forms
 from app import app
@@ -24,6 +24,17 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/upload', methods = ['POST', 'GET'])
+def upload():
+    if request.method == 'POST':
+        f = request.files['file']
+        f.save('D:/maxim/tmp/uploaded_file.txt')
+        flash('file uploaded')
+        return redirect('/index')
+    return render_template('upload.html')
+
+
 @app.route('/test')
 def test():
     return render_template('test.html')
+
