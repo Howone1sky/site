@@ -1,4 +1,5 @@
 from flask import render_template, flash, redirect, request
+from werkzeug.utils import secure_filename
 
 from app import forms
 from app import app
@@ -28,7 +29,7 @@ def index():
 def upload():
     if request.method == 'POST':
         f = request.files['file']
-        f.save('D:/maxim/tmp/uploaded_file.txt')
+        f.save('D:/maxim/tmp/' + secure_filename(f.filename))
         flash('file uploaded')
         return redirect('/index')
     return render_template('upload.html')
