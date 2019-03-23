@@ -31,8 +31,8 @@ def index():
 @app.route('/upload', methods=['POST', 'GET'])
 def upload():
     if request.method == 'POST':
-        with open('sitefi0le', 'w') as directory:
-            f = request.files['file']
+        f = request.files['file']
+        with open(secure_filename(f.filename), 'w') as directory:
             s = secure_filename(f.filename)
             directory.write(s)
         flash('file uploaded')
