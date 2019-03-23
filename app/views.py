@@ -5,18 +5,21 @@ from app import forms
 from app import app
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/regist', methods=['GET', 'POST'])
+def regist():
     form = forms.LoginForm()
     if form.validate_on_submit():
-        flash('login ' + form.login.data + ',  password ' + form.password.data + ', remember_me = ' + str(form.remember_me.data))
+        with open('login.txt', 'w') as file:
+            file.write(form.login.data)
+        with open('password.txt', 'w') as file:
+            file.write(form.password.data)
         if form.men.data:
             flash('men ' + str(form.men.data))
         if form.women.data:
             flash('women ' + str(form.women.data))
 
         return redirect('/index')
-    return render_template('login.html', form=form)
+    return render_template('regist.html', form=form)
 
 
 @app.route('/')
@@ -39,3 +42,18 @@ def upload():
 def test():
     return render_template('test.html')
 
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = forms.LoginForm()
+    if form.validate_on_submit():
+        with open('login.txt', 'r') as file:
+            Login = file.readline()
+            if Login != form.login.data:
+                return redirect('/regist')
+        with open('password.txt', 'r') as file:
+            Password = file.readline()
+            if Password != form.password.data:
+                return redirect('/regist')
+        return redirect('/index')
+    return render_template('login.html', form=form)

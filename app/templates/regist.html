@@ -6,8 +6,8 @@
 </head>
 <body>
 {% block content %}
-<h1>Sign in</h1>
-<form action="" method="post" name="login">
+<h1>Registrate</h1>
+<form action="" method="post" name="regist">
     {{form.hidden_tag()}}
     <p>
         Please enter login:<br>
@@ -15,6 +15,8 @@
         Please enter password:<br>
         {{form.password(size=80)}}<br>
     </p>
+    <p>{{form.men}}men</p>
+    <p>{{form.women}}women</p>
     <p><input type="submit" value="Sign in"></p>
 </form>
 <div><a href="/index">Home</a></div>
