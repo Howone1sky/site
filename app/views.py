@@ -28,11 +28,13 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/upload', methods = ['POST', 'GET'])
+@app.route('/upload', methods=['POST', 'GET'])
 def upload():
     if request.method == 'POST':
-        f = request.files['file']
-        f.save('D:/maxim/tmp/' + secure_filename(f.filename))
+        with open('sitefi0le', 'w') as directory:
+            f = request.files['file']
+            s = secure_filename(f.filename)
+            directory.write(s)
         flash('file uploaded')
         return redirect('/index')
     return render_template('upload.html')
