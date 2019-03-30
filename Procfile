@@ -1,1 +1,1 @@
-web: flask run --port=$PORT
+web: gunicorn --bind $HOST:$PORT wsgi:app
