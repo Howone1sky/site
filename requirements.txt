@@ -4,7 +4,7 @@ Flask-WTF==0.14.2
 Jinja2==2.10	
 MarkupSafe==1.1.1	
 WTForms==2.2.1	
-Werkzeug==0.15.0	
+Werkzeug==0.15.3	
 cachetools==3.1.0	
 certifi==2019.3.9	
 chardet==3.0.4	
